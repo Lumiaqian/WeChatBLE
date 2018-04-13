@@ -1,0 +1,57 @@
+<view class="content">
+<text class="text">适配器状态：{{status}}</text>
+<text class="text">是否搜索：{{isSearched}}</text>
+<text class="text">已连接设备：{{connectDeviceName}}</text>
+<text class="text">消息：{{msg}}</text>
+<text class="text">消息：{{msg1}}</text>
+<view>
+<button size="mini" type="primary" bindtap="initBLE" >初始化蓝牙适配器</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="bleStatus" >本机连接状态</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="startSerach" >搜索周边设备</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="getDevices" >获取周边设备列表</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="stopSearch" >停止搜索</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="getDeviceServices" >获取连接设备所有的service</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="getDevicesCharacteristics" >获取连接设备的所有特征值</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="sendMsg" >发送指定消息</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="startNotify" >启用设备特征值变化时的notify</button>
+</view>
+<view>
+<button size="mini" type="primary" bindtap="receiveMsg" >接收定消息</button>
+</view>
+<view>
+    <text class="text">收到的消息是：{{receiveMessage}}</text>
+</view>
+
+<button size="mini" type="primary" bindtap="stopBLE" >断开蓝牙连接</button>
+</view>
+
+<view> 
+    <block wx:for="{{devices}}" for-item="item" wx:key="{{item.deviceId}}">
+        <view class="venues_item">  
+            <text class="text">设备名称:{{item.name}}</text>  
+            <text class="text">设备ID:{{item.deviceId}}</text>
+            <text class='text'>广播数据: {{item.advertisData}}</text> 
+            <text class='text'>信号强度RSSI: {{item.RSSI}}</text>
+            <text class="text">连接状态:{{connectedDeviceId == item.deviceId?"已连接":"未连接"}}</text>  
+            <view>  
+              <button type="warn" id="{{item.deviceId}}" type="primary" size="mini" bindtap="connect" data-name="{{item.name}}">连接</button>  
+            </view>
+      </view> 
+    </block>
+</view>

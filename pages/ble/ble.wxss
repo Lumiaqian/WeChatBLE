@@ -1,0 +1,14 @@
+.content {  
+    margin: 0 10px;  
+  }  
+    
+  .text {  
+    display: block;  
+    line-height: 35px;  
+    margin: 0 10px;  
+  }   
+  .sendto {  
+    line-height: 30px;  
+    display: block;  
+    margin: 10px;  
+  } 
